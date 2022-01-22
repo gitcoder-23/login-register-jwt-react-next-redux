@@ -64,6 +64,7 @@ const Login = (props) => {
               JSON.stringify({
                 userLogin: true,
                 token: data.access_token,
+                userEmail: loginState.email,
               })
             );
             window.location.reload();

@@ -10,6 +10,7 @@ const FrontPage = () => {
     // "localStorage" issue solved
     if (localStorage) {
       const isLoginTrue = JSON.parse(localStorage.getItem('userLogin'));
+      console.log('isLoginTrue', isLoginTrue);
       setStorageItem(isLoginTrue);
     }
   }, []);
@@ -42,7 +43,7 @@ const FrontPage = () => {
       </Head>
       <div style={{ marginTop: '100px' }}>
         {storageItem && storageItem.userLogin ? (
-          <h2>Welcome Back User</h2>
+          <h2>Welcome Back User - {storageItem?.userEmail}</h2>
         ) : (
           <>{userNotLogin()}</>
         )}

@@ -63,6 +63,7 @@ const Register = () => {
               JSON.stringify({
                 userLogin: true,
                 token: data.access_token,
+                userEmail: registerState.email,
               })
             );
             router.push('/login');

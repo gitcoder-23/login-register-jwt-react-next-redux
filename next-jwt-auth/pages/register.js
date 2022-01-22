@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { makeStyles } from '@material-ui/core/styles';
@@ -87,6 +87,17 @@ const Register = () => {
         });
     }
   };
+  // after login
+  useEffect(() => {
+    if (localStorage) {
+      if (localStorage.getItem('userLogin') !== null) {
+        const userLocalData = JSON.parse(localStorage.getItem('userLogin'));
+        if (userLocalData.userLogin === true) {
+          router.push('/');
+        }
+      }
+    }
+  }, []);
 
   return (
     <div>

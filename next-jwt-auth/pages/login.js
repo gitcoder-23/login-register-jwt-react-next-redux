@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import TextField from '@material-ui/core/TextField';
@@ -15,10 +15,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Login = () => {
+const Login = (props) => {
   const classes = useStyles();
 
   const router = useRouter();
+
   const [message, setMessage] = useState('');
   const [errorState, setErrorState] = useState(false);
   const [loginState, setLoginState] = useState({
@@ -65,7 +66,7 @@ const Login = () => {
                 token: data.access_token,
               })
             );
-            // window.location.reload();
+            window.location.reload();
             router.push('/');
           }
         })
@@ -88,6 +89,18 @@ const Login = () => {
         });
     }
   };
+  // after login
+
+  useEffect(() => {
+    if (localStorage) {
+      if (localStorage.getItem('userLogin') !== null) {
+        const userLocalData = JSON.parse(localStorage.getItem('userLogin'));
+        if (userLocalData.userLogin === true) {
+          router.push('/');
+        }
+      }
+    }
+  }, []);
 
   return (
     <>

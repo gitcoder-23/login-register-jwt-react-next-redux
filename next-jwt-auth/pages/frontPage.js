@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 
 import Link from 'next/link';
+import axiosApi from '../axiosApi';
 
 const FrontPage = () => {
   const [storageItem, setStorageItem] = useState('');

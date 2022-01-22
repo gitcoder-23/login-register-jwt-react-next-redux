@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 
 import Link from 'next/link';
 
 const FrontPage = () => {
+  const [storageItem, setStorageItem] = useState('');
+
+  useEffect(() => {
+    // "localStorage" issue solved
+    if (localStorage) {
+      const isLoginTrue = JSON.parse(localStorage.getItem('userLogin'));
+      setStorageItem(isLoginTrue);
+    }
+  }, []);
+
   const userNotLogin = () => (
     <>
       <h2>It seem's like you are not login</h2>
@@ -31,7 +41,11 @@ const FrontPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div style={{ marginTop: '100px' }}>
-        <h2>Welcome Back User</h2> <>{userNotLogin()}</>
+        {storageItem && storageItem.userLogin ? (
+          <h2>Welcome Back User</h2>
+        ) : (
+          <>{userNotLogin()}</>
+        )}
       </div>
     </>
   );

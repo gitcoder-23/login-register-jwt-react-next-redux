@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import axios from 'axios';
 import AxiosAPI from '../axiosApi';
 
 const useStyles = makeStyles((theme) => ({
@@ -66,6 +65,7 @@ const Login = () => {
                 token: data.access_token,
               })
             );
+            // window.location.reload();
             router.push('/');
           }
         })

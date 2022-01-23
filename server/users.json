@@ -14,6 +14,7 @@
     { "id": 13, "email": "simublade@yahoo.com", "password": "123456" },
     { "id": 14, "email": "shivani@yopmail.com", "password": "Test@12345" },
     { "id": 15, "email": "nizam@yopmail.com", "password": "Test@12345" },
-    { "id": 16, "email": "mira@yopmail.com", "password": "123456" }
+    { "id": 16, "email": "mira@yopmail.com", "password": "123456" },
+    { "id": 17, "email": "test@yahoo.com", "password": "123456" }
   ]
 }

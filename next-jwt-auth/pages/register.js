@@ -89,16 +89,23 @@ const Register = () => {
     }
   };
   // after login
-  useEffect(() => {
+  if (typeof window !== 'undefined') {
     if (localStorage) {
       if (localStorage.getItem('userLogin') !== null) {
         const userLocalData = JSON.parse(localStorage.getItem('userLogin'));
         if (userLocalData.userLogin === true) {
-          router.push('/');
+          window.location.reload();
+          window.location.href = '/';
+
+          // router.push('/');
         }
       }
     }
-  }, []);
+  }
+
+  // useEffect(() => {
+
+  // }, []);
 
   return (
     <div>

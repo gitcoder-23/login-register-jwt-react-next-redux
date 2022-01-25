@@ -67,8 +67,9 @@ const Login = (props) => {
                 userEmail: loginState.email,
               })
             );
-            window.location.reload();
-            router.push('/');
+            // window.location.reload();
+            // router.push('/');
+            window.location.href = '/';
           }
         })
         .catch((error) => {

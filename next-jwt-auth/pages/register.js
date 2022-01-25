@@ -66,7 +66,8 @@ const Register = () => {
                 userEmail: registerState.email,
               })
             );
-            router.push('/login');
+            window.location.href = '/';
+            // router.push('/login');
           }
         })
         .catch((error) => {

@@ -1,1 +1,8 @@
 https://youtu.be/qT6soZsdW-Q
+
+
+// Persist Redux State with redux-persist
+
+https://dev.to/dawnind/persist-redux-state-with-redux-persist-3k0d
+
+https://www.youtube.com/watch?v=4TsuXuReRKE

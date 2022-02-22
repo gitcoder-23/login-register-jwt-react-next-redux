@@ -30,7 +30,12 @@ export const loginInitiate = (email, password) => {
       })
       .then((response) => {
         console.log('login-response', response);
-        dispatch(loginSuccess(response.data.access_token));
+        dispatch(
+          loginSuccess({
+            email: email,
+            token: response.data.access_token,
+          })
+        );
       })
       .catch((error) => {
         dispatch(loginFail(error.response.data.message));

@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
   const { user, error, loading } = useSelector((state) => state.auth);
+  console.log('user', user);
+
+  const splitData = user.email.split('');
+  console.log('splitData', splitData);
+
+  // useEffect(() => {}, []);
 
   const userNotLogin = () => (
     <>

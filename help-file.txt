@@ -6,3 +6,11 @@ https://youtu.be/qT6soZsdW-Q
 https://dev.to/dawnind/persist-redux-state-with-redux-persist-3k0d
 
 https://www.youtube.com/watch?v=4TsuXuReRKE
+
+
+
+// How to detect and split email address using javascript?
+
+https://stackoverflow.com/questions/32124063/how-to-detect-and-split-email-address-using-javascript
+
+https://www.codegrepper.com/code-examples/javascript/split+on+mail+adress+to+get+domain+javascript

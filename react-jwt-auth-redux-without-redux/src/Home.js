@@ -1,15 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
   const { user, error, loading } = useSelector((state) => state.auth);
-  console.log('user', user);
+  console.log('user->', user);
+  const [userName, setUserName] = useState('');
 
-  const splitData = user.email.split('');
-  console.log('splitData', splitData);
-
-  // useEffect(() => {}, []);
+  useEffect(() => {
+    // const splitData = user.email.split('');
+    if (user !== null) {
+      const splitData = user.email.split('@');
+      console.log('splitData->', splitData[0]);
+      setUserName(splitData[0]);
+    }
+  }, []);
 
   const userNotLogin = () => (
     <>
@@ -25,7 +30,17 @@ const Home = () => {
   );
   return (
     <div style={{ marginTop: '100px' }}>
-      {user ? <h2>Welcome Back User</h2> : <>{userNotLogin()}</>}
+      {/* {user ? (
+        <h2>Welcome Back {userName == '' ? 'User' : { userName }}</h2>
+      ) : (
+        <>{userNotLogin()}</>
+      )} */}
+
+      {!user || user === null ? (
+        <>{userNotLogin()}</>
+      ) : (
+        <h2>Welcome Back {userName}</h2>
+      )}
     </div>
   );
 };

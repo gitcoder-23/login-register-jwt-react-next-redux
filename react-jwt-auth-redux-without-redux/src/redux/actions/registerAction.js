@@ -30,7 +30,10 @@ export const registerInitiate = (email, password) => {
       })
       .then((response) => {
         console.log('reg-response', response);
-        dispatch(registerSuccess(response.data.access_token));
+        // dispatch(registerSuccess(response.data.access_token));
+        dispatch(
+          registerSuccess({ email: email, token: response.data.access_token })
+        );
       })
       .catch((error) => {
         dispatch(registerFail(error.response.data.message));

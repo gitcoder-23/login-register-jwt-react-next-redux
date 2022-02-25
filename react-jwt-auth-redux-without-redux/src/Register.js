@@ -23,6 +23,7 @@ const Register = ({ setLogoutUser }) => {
   const classes = useStyles();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [notification, setNotification] = useState('');
   let history = useHistory();
 
   const { user, error, loading } = useSelector((state) => state.auth);
@@ -31,7 +32,15 @@ const Register = ({ setLogoutUser }) => {
 
   const register = (e) => {
     e.preventDefault();
-    dispatch(registerInitiate(email, password));
+    if (!email || !password) {
+      setNotification('Please all the fields');
+      setTimeout(() => {
+        setNotification('');
+      }, 1000);
+    } else {
+      dispatch(registerInitiate(email, password));
+      setNotification('Register successfully');
+    }
   };
 
   useEffect(() => {
@@ -44,6 +53,7 @@ const Register = ({ setLogoutUser }) => {
     <div style={{ marginTop: '100px' }}>
       <h2>Register Page</h2>
       {error && <p style={{ color: 'red' }}>{error}</p>}
+      {notification && <p style={{ color: 'red' }}>{notification}</p>}
       <form
         className={classes.root}
         noValidate

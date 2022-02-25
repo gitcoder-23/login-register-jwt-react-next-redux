@@ -39,7 +39,7 @@ const Register = ({ setLogoutUser }) => {
       }, 1000);
     } else {
       dispatch(registerInitiate(email, password));
-      setNotification('Register successfully');
+      // setNotification('Register successfully');
     }
   };
 
